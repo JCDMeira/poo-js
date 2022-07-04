@@ -9,4 +9,10 @@
     - design patterns.
 
     # paradigma é uma forma de se fazer algo, no caso programar
+
+    _ OO x mundo real
+
+    - uma classe Carro representa todos os carros do mundo;
+    - porém, cada Carro distingue do outro, sendo assim eles são objetos;
+    - tendo características (propriedades) e funcionalidades próprias (métodos)
 */
