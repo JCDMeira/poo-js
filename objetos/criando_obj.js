@@ -3,6 +3,9 @@ let carro = {
   cor: "vermelha",
   opicionais: ["teto solar", "blindagem"],
   "tem blindagem": true,
+  acelerar: function (params) {
+    console.log("acelerando...");
+  },
 };
 
 console.log(carro);
@@ -18,3 +21,5 @@ console.log(carro["tem blindagem"]);
 
 let label = "portas";
 console.log("acessando por label: ", carro[label]);
+
+carro.acelerar();
