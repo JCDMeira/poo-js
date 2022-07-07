@@ -1,6 +1,7 @@
 let carro = {
   portas: 4,
   cor: "vermelha",
+  opicionais: ["teto solar", "blindagem"],
 };
 
 console.log(carro);
