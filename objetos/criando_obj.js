@@ -15,3 +15,6 @@ console.log(carro["cor"]);
 carro.opicionais.map((op) => console.log(op));
 
 console.log(carro["tem blindagem"]);
+
+let label = "portas";
+console.log("acessando por label: ", carro[label]);
