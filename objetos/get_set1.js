@@ -44,3 +44,9 @@ pessoa.falar = function () {
 //_ pode adicionar props ou metódos a objs já criados
 
 pessoa.falar();
+
+//_ pode deletar props ou metódos a objs já criados
+//_ mas isso não é normalmente aplicado.
+delete pessoa.falar;
+
+console.log(pessoa);
