@@ -36,3 +36,11 @@ console.log(pessoa.caracteristicas);
 console.log(pessoa.caracteristicas.cabelos);
 console.log(pessoa.posses);
 console.log(pessoa.posses[1]);
+
+pessoa.falar = function () {
+  console.log("óla");
+};
+
+//_ pode adicionar props ou metódos a objs já criados
+
+pessoa.falar();
