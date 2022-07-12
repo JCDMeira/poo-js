@@ -1,5 +1,5 @@
 /*
-  _ Exercício 3:
+  _ Exercício 4:
 
   - crie um obj ninja
   - use constructor function
