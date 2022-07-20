@@ -3,12 +3,13 @@ class Calculator {
     this.upperValue = document.querySelector("#upper-number");
     this.resultValue = document.querySelector("#result-number");
     this.reset = 0;
+    this.reg = new RegExp("^\\d+$");
   }
 
-  checkLastDigit = (input, upperValue, reg) => {
+  checkLastDigit = (input, upperValue) => {
     if (
-      !reg.test(input) &&
-      !reg.test(upperValue.substr(upperValue.length - 1))
+      !this.reg.test(input) &&
+      !this.reg.test(upperValue.substr(upperValue.length - 1))
     ) {
       return true;
     } else {
@@ -26,19 +27,19 @@ class Calculator {
     let upperValue = this.upperValue.textContent;
 
     //verifica se só tem números
-    let reg = new RegExp("^\\d+$");
+    // let reg = new RegExp("^\\d+$");
 
     //ativa método de limpar display
     if (input === "AC") {
       this.clearValues();
     } else {
       // verifica se precisa adicionar
-      if (this.checkLastDigit(input, upperValue, reg)) {
+      if (this.checkLastDigit(input, upperValue)) {
         return false;
       }
 
       //adiciona espaços aos operadores
-      if (!reg.test(input)) {
+      if (!this.reg.test(input)) {
         input = ` ${input} `;
       }
 
