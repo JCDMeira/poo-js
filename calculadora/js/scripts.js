@@ -1,11 +1,11 @@
 class Calculator {
   constructor() {
     this.upperValue = document.querySelector("#upper-number");
-    this.resulteValue = document.querySelector("#result-number");
+    this.resultValue = document.querySelector("#result-number");
     this.reset = 0;
   }
 
-  checkLastDigit(input, upperValue, reg) {
+  checkLastDigit = (input, upperValue, reg) => {
     if (
       !reg.test(input) &&
       !reg.test(upperValue.substr(upperValue.length - 1))
@@ -14,26 +14,26 @@ class Calculator {
     } else {
       return false;
     }
-  }
+  };
 
-  clearValues() {
+  clearValues = () => {
     this.upperValue.textContent = "0";
     this.resultValue.textContent = "0";
-  }
+  };
 
-  btnPress() {
-    let input = this.textContent;
-    let upperValue = calc.upperValue.textContent;
+  btnPress = ({ target: { textContent } }) => {
+    let input = textContent;
+    let upperValue = this.upperValue.textContent;
 
     //verifica se só tem números
     let reg = new RegExp("^\\d+$");
 
     //ativa método de limpar display
     if (input === "AC") {
-      calc.clearValues();
+      this.clearValues();
     } else {
       // verifica se precisa adicionar
-      if (calc.checkLastDigit(input, upperValue, reg)) {
+      if (this.checkLastDigit(input, upperValue, reg)) {
         return false;
       }
 
@@ -43,12 +43,12 @@ class Calculator {
       }
 
       if (upperValue === "0") {
-        calc.upperValue.textContent = input;
+        this.upperValue.textContent = input;
       } else {
-        calc.upperValue.textContent += input;
+        this.upperValue.textContent += input;
       }
     }
-  }
+  };
 }
 
 //start obj
