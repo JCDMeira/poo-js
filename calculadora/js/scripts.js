@@ -23,6 +23,26 @@ class Calculator {
     this.resultValue.textContent = "0";
   };
 
+  // método de soma
+  sum = (n1, n2) => {
+    return parseFloat(n1) + parseFloat(n2);
+  };
+
+  // método de subtração
+  subtraction = (n1, n2) => {
+    return parseFloat(n1) - parseFloat(n2);
+  };
+
+  // método de subtração
+  multiplication = (n1, n2) => {
+    return parseFloat(n1) * parseFloat(n2);
+  };
+
+  // método de divisão
+  division = (n1, n2) => {
+    return parseFloat(n1) / parseFloat(n2);
+  };
+
   refreshValues = (total) => {
     this.upperValue.textContent = total;
     this.resultValue.textContent = total;
@@ -40,9 +60,7 @@ class Calculator {
       let actualItem = upperValueArray[i];
 
       if (actualItem === "+") {
-        result =
-          parseFloat(upperValueArray[i - 1]) +
-          parseFloat(upperValueArray[i + 1]);
+        result = this.sum(upperValueArray[i - 1], upperValueArray[i + 1]);
       }
     }
 
