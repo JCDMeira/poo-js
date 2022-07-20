@@ -3,6 +3,7 @@ class Calculator {
     this.upperValue = document.querySelector("#upper-number");
     this.resultValue = document.querySelector("#result-number");
     this.reset = 0;
+    //verifica se só tem números
     this.reg = new RegExp("^\\d+$");
   }
 
@@ -22,16 +23,37 @@ class Calculator {
     this.resultValue.textContent = "0";
   };
 
+  // resolve operação
+  resolution = () => {
+    //explode uma string em um array
+    let upperValueArray = this.upperValue.textContent.split(" ");
+
+    //resultado da operação
+    let result = 0;
+
+    for (let i = 0; i <= upperValueArray.length; i++) {
+      let actualItem = upperValueArray[i];
+
+      if (actualItem === "+") {
+        result =
+          parseFloat(upperValueArray[i - 1]) +
+          parseFloat(upperValueArray[i + 1]);
+      }
+    }
+
+    this.upperValue.textContent = result;
+    this.resultValue.textContent = result;
+  };
+
   btnPress = ({ target: { textContent } }) => {
     let input = textContent;
     let upperValue = this.upperValue.textContent;
 
-    //verifica se só tem números
-    // let reg = new RegExp("^\\d+$");
-
     //ativa método de limpar display
     if (input === "AC") {
       this.clearValues();
+    } else if (input === "=") {
+      this.resolution();
     } else {
       // verifica se precisa adicionar
       if (this.checkLastDigit(input, upperValue)) {
