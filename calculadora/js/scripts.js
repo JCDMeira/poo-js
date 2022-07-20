@@ -16,6 +16,11 @@ class Calculator {
     }
   }
 
+  clearValues() {
+    this.upperValue.textContent = "0";
+    this.resultValue.textContent = "0";
+  }
+
   btnPress() {
     let input = this.textContent;
     let upperValue = calc.upperValue.textContent;
@@ -23,14 +28,25 @@ class Calculator {
     //verifica se só tem números
     let reg = new RegExp("^\\d+$");
 
-    if (calc.checkLastDigit(input, upperValue, reg)) {
-      return false;
-    }
-
-    if (upperValue === "0") {
-      calc.upperValue.textContent = input;
+    //ativa método de limpar display
+    if (input === "AC") {
+      calc.clearValues();
     } else {
-      calc.upperValue.textContent += input;
+      // verifica se precisa adicionar
+      if (calc.checkLastDigit(input, upperValue, reg)) {
+        return false;
+      }
+
+      //adiciona espaços aos operadores
+      if (!reg.test(input)) {
+        input = ` ${input} `;
+      }
+
+      if (upperValue === "0") {
+        calc.upperValue.textContent = input;
+      } else {
+        calc.upperValue.textContent += input;
+      }
     }
   }
 }
