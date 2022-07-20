@@ -23,6 +23,11 @@ class Calculator {
     this.resultValue.textContent = "0";
   };
 
+  refreshValues = (total) => {
+    this.upperValue.textContent = total;
+    this.resultValue.textContent = total;
+  };
+
   // resolve operação
   resolution = () => {
     //explode uma string em um array
@@ -41,13 +46,23 @@ class Calculator {
       }
     }
 
-    this.upperValue.textContent = result;
-    this.resultValue.textContent = result;
+    if (result) {
+      this.reset = 1;
+    }
+
+    // atualiza valores
+    this.refreshValues(result);
   };
 
   btnPress = ({ target: { textContent } }) => {
     let input = textContent;
     let upperValue = this.upperValue.textContent;
+
+    if (this.reset && this.reg.test(input)) {
+      upperValue = "0";
+      this.resultValue.textContent = "0";
+    }
+    this.reset = 0;
 
     //ativa método de limpar display
     if (input === "AC") {
