@@ -57,10 +57,47 @@ class Calculator {
     let result = 0;
 
     for (let i = 0; i <= upperValueArray.length; i++) {
+      let operation = 0;
       let actualItem = upperValueArray[i];
 
-      if (actualItem === "+") {
-        result = this.sum(upperValueArray[i - 1], upperValueArray[i + 1]);
+      //faz multiplicação
+      if (actualItem === "x") {
+        result = this.multiplication(
+          upperValueArray[i - 1],
+          upperValueArray[i + 1]
+        );
+        operation = 1;
+        //faz divisão
+      } else if (actualItem === "/") {
+        result = this.division(upperValueArray[i - 1], upperValueArray[i + 1]);
+        operation = 1;
+        // checa se há alguma multiplicação ou divisão ainda
+      } else if (
+        !upperValueArray.includes("x") &&
+        !upperValueArray.includes("/")
+      ) {
+        //faz a soma
+        if (actualItem === "+") {
+          result = this.sum(upperValueArray[i - 1], upperValueArray[i + 1]);
+          operation = 1;
+          //faz a subtração
+        } else if (actualItem === "-") {
+          result = this.subtraction(
+            upperValueArray[i - 1],
+            upperValueArray[i + 1]
+          );
+          operation = 1;
+        }
+      }
+
+      // atualiza valores do array para proxima iteração
+      if (operation) {
+        // indice anterior no resultado da operação
+        upperValueArray[i - 1] = result;
+        // remove os itens já utilizado para a operação
+        upperValueArray.splice(i, 2);
+        // atualizar o valor do índice
+        i = 0;
       }
     }
 
