@@ -136,7 +136,7 @@ class Calculator {
       }
 
       if (upperValue === "0") {
-        this.upperValue.textContent = input;
+        if (this.reg.test(input)) this.upperValue.textContent = input;
       } else {
         this.upperValue.textContent += input;
       }
