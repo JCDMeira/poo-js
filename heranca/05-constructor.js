@@ -23,3 +23,25 @@ Advogado.prototype = Pessoa.prototype;
 
 F.prototype = Pessoa.prototype;
 Advogado.prototype = new F();
+
+/*
+  _ Isolando a herança em uma função
+
+  - para facilitas as coisas e deixar a herança reutilizável também, podemos utilizar uma função
+*/
+
+function extend(Filho, Pai) {
+  const F = function () {};
+
+  F.prototype = Pai.prototype;
+  Filho.prototype = new F();
+}
+
+function Dev() {}
+Dev.prototype.profissao = "Dev";
+
+//herança
+extend(Dev, Pessoa);
+
+const jean = new Dev();
+jean.falar();
