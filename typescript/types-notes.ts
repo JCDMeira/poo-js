@@ -57,3 +57,14 @@ function logMessage(message: string) {
 }
 
 logMessage("Hello world");
+
+//_ interfaces
+//# é a possibilidade de criar uma função que recebe argumentos específicos
+//# e os utiliza conforme usa lógica
+
+function imprimir(obj: { nome: string; idade: number }) {
+  console.log(obj.nome, obj.idade);
+}
+
+const pessoa2 = { nome: "jean", idade: 25 };
+imprimir(pessoa2);
