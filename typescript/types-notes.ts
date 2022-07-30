@@ -35,3 +35,25 @@ enum Carro {
   a = 4,
 }
 console.log(Carro);
+
+//_ any
+//# quando não se sabe o tipo
+//# permite qualquer tipo
+//# evitar usar
+
+let aindaNaoSeSabeOTipo: any;
+
+aindaNaoSeSabeOTipo = 1;
+aindaNaoSeSabeOTipo = true;
+aindaNaoSeSabeOTipo = "test";
+
+//_ void
+//# void é o oposto do any
+//# normalmente usado em funções
+//# aceita apenas undefined
+
+function logMessage(message: string) {
+  console.log(message);
+}
+
+logMessage("Hello world");
