@@ -68,3 +68,23 @@ function imprimir(obj: { nome: string; idade: number }) {
 
 const pessoa2 = { nome: "jean", idade: 25 };
 imprimir(pessoa2);
+
+interface modelPessoa {
+  nome: string;
+  idade?: number; //# opcional
+}
+
+function criarPessoa(pessoa: modelPessoa): modelPessoa {
+  let pessoaObj;
+  if (pessoa.nome) {
+    pessoaObj.nome = pessoa.nome;
+  }
+  if (pessoa.idade) {
+    pessoaObj.idade = pessoa.idade;
+  }
+
+  return pessoaObj;
+}
+
+const jean = criarPessoa({ nome: "Jean" });
+console.log(jean);
