@@ -88,3 +88,41 @@ function criarPessoa(pessoa: modelPessoa): modelPessoa {
 
 const jean = criarPessoa({ nome: "Jean" });
 console.log(jean);
+
+/*
+  _ clases em ts usam a ideia da versão es6 e não a herança por prototype
+*/
+
+class CarroClass {
+  marca: string;
+  aro: number;
+
+  constructor(marca: string, aro: number) {
+    this.marca = marca;
+    this.aro = aro;
+  }
+}
+
+const ferrari = new CarroClass("Ferrari", 20);
+console.log(ferrari);
+
+/*
+  _ herança também lembra a do es6
+*/
+
+class Animal {
+  andar() {
+    console.log("Andou");
+  }
+}
+
+class Cachorro extends Animal {
+  nome: string;
+  constructor(nome: string) {
+    super();
+    this.nome = nome;
+  }
+  latir() {
+    console.log("au au");
+  }
+}
