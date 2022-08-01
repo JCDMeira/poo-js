@@ -75,7 +75,7 @@ interface modelPessoa {
 }
 
 function criarPessoa(pessoa: modelPessoa): modelPessoa {
-  let pessoaObj;
+  let pessoaObj = { nome: "teste", idade: 0 };
   if (pessoa.nome) {
     pessoaObj.nome = pessoa.nome;
   }
@@ -126,3 +126,17 @@ class Cachorro extends Animal {
     console.log("au au");
   }
 }
+
+//_ funções-> recebem os tipos e também o tipo do retorno
+function Somar(num1: number, num2: number): number {
+  return num1 + num2;
+}
+console.log(Somar(5, 6));
+// console.log(Somar(5, "6"));
+
+function teste(frase?: string): string {
+  return frase ? frase : "não recebeu frase";
+}
+
+console.log(teste());
+console.log(teste("teste"));
